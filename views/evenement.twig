@@ -1,0 +1,47 @@
+<html>
+<body>
+<a href="/evenement/formajout">Ajouter evenement </a>
+<h1>Liste des evenements</h1>
+<table border="1">
+    <thead>
+    <th> Nom de l'evenement</th>
+    <th> date de début</th>
+    <th> heure de début</th>
+    <th> date de fin</th>
+    <th> heure de fin</th>
+    <th> Action</th>
+    </thead>
+    <tbody>
+    {% for item in data %}
+        <tr>
+            <td ><strong>{{item.nom}}</strong></td>
+            <td>{{item.datedebut}}</td>
+            <td>{{item.heuredebut}}</td>
+            <td>{{item.datefin}}</td>
+            <td>{{item.heurefin}}</td>
+
+            <td>
+                <a href="/evenement/details/">Details</a>
+                <a href="/evenement/delete/{{ item._id }}">Delete</a>
+                <a href="/evenement/formupdate/{{ item._id }}">Update</a>
+                <a href="/evenement/formulaire/{{ item._id }}">participer</a>
+
+
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<br><br>
+rechercher : <input type="text" name="found" > <a href="/evenement/recherche">recherche</a>
+<h1>Upload Image</h1>
+<h3>{{ msg }}</h3>
+<form method="post" action="/evenement/upload" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit">
+</form>
+<img src="{{ file }}" class="responsive-img" alt="chargement">
+</body>
+
+</html>
