@@ -4,8 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-const cors = require('cors');
-
+const cors= require ("cors");
 mongoose.connect("mongodb+srv://gestionEcole:gestionEcole@cluster0.qvcwozh.mongodb.net/GestionEcole?retryWrites=true&w=majority",(err,done)=>
 {
   if(err){
@@ -17,12 +16,11 @@ mongoose.connect("mongodb+srv://gestionEcole:gestionEcole@cluster0.qvcwozh.mongo
 }
 
 
-);
+)
 
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var achatRouter = require('./routes/achat');
-var comptaRouter = require('./routes/compta');
+var classeRouter = require('./routes/classe');
+var matiereRouter = require('./routes/matiere');
 
 var app = express();
 
@@ -37,10 +35,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/achat', achatRouter);
-app.use('/compta', comptaRouter);
+app.use('/classe', classeRouter);
+app.use('/matiere', matiereRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
