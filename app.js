@@ -84,8 +84,48 @@ var absenceRouter = require('./routes/absences');
 var pieceRouter = require('./routes/pieces');
 
 app.use(cors());
+var classeRouter = require('./routes/classe');
+var matiereRouter = require('./routes/matiere');
 
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+
+app.use('/users', usersRouter);
+app.use('/classe', classeRouter);
+app.use('/matiere', matiereRouter);
+
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var achatRouter = require('./routes/achat');
+var comptaRouter = require('./routes/compta');
+
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/achat', achatRouter);
+app.use('/compta', comptaRouter);
 
 var notesRouter = require('./routes/notes');
 var coursRouter = require('./routes/cours');
