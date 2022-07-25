@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 var Comptabilite = new Schema({
 
     montant :{ type: String, required: true },
-    sens : String,
-    desc : String,
-    balance : String,
-    date : String
+    sens : { type: String, required: true },
+    desc :{ type: String, required: true },
+    balance : { type: String, required: true },
+    date : { type: String, required: true }
 
 });
 
