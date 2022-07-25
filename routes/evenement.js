@@ -64,7 +64,7 @@ router.post('/ajoutEvenement',async function (req,res,next){
 })
 
 //-----------------delete----------------------------
-router.get('/delete/:id',(req,res,next)=>{
+router.delete('/delete/:id',(req,res,next)=>{
   var idDetails ;
     console.log('Requete==> ');
     console.log(req.params.id);
@@ -88,9 +88,11 @@ router.get('/delete/:id',(req,res,next)=>{
     res.send('Deleted successfully ');
 });
 //***************** update****************
-router.post('/modifier' , (req, res, next)=>{
-    var ident1 = req.body.secretid1;
-    var ident2 = req.body.secretid2;
+router.post('/modifier/:id1/:id2' , (req, res, next)=>{
+    // var ident1 = req.body.secretid1;
+    // var ident2 = req.body.secretid2;
+    var ident1 = req.params.id1;
+    var ident2 = req.params.id2;
     console.log('ident1 == '+ident1);
     console.log('ident2 == '+ident2);
     evenementObject.findById({_id : ident1}, function(err, doc){
