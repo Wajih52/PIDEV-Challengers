@@ -6,7 +6,7 @@ const jwt= require('jsonwebtoken');
 require('dotenv/config');
 const nodemailer = require('nodemailer');
 const { ResetPassword } = require('../models/resetPassword');
-const { uuid } = require('uuidv4');
+const { uuid } = require('uuid');
 const bycrpt = require('bcrypt')
 const authCheck = require('../middleware/check-auth')
 
