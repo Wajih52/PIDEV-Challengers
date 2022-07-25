@@ -56,6 +56,8 @@ router.post('/addAchats', async function(req,res){
         desc : req.body.desc,
         date : req.body.date
     });
+    if (p.montant !='' && p.sens!=''&& p.qte!='' && p.fournisseur!='' && p.desc!='' && p.date!=''){
+
 p.montant=p.montant*p.qte;
 console.log(p.montant);
     await p.save();
@@ -78,7 +80,10 @@ console.log(a.montant);
      })
  p.compta=a;
  await p.save();
- res.send("sucess save achat");
+ res.send("sucess save achat");}
+ else {
+    res.send("you have a empty field")
+ }
 });
 
 //////////////////////////////////////////

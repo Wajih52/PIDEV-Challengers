@@ -59,13 +59,18 @@ router.post('/addCompta',function(req,res){
         balance : req.body.balance,
         date : req.body.date
     });
+    if (p.montant !='' && p.sens!='' && p.desc!='' && p.date!=''){
     x.then(function(result) {
         p.balance=result;
        
         p.save();
      })
+     res.send("sucess save compta");
+    }
 
- res.send("sucess save compta");
+else{
+    res.send("you have vide element");
+}
 });
 
 router.delete('/deleteCompta/:id',(req,res,next)=>{
