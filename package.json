@@ -1,7 +1,7 @@
 {
   "name": "eshop",
   "version": "1.0.0",
-  "description": "backend of the eshop",
+  "description": "Gestion d'école",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -21,6 +21,7 @@
     "exceljs": "^4.3.0",
     "express": "~4.16.1",
     "express-fileupload": "^1.4.0",
+    "express-jwt": "^7.7.5",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "method-override": "^3.0.0",
@@ -30,9 +31,5 @@
     "nodemailer": "^6.7.6",
     "nodemon": "^2.0.16",
     "pug": "^3.0.2"
-  },
-  "description": "Gestion d'école",
-  "main": "app.js",
-  "author": "",
-  "license": "ISC"
+  }
 }

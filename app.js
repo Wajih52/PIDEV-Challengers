@@ -4,10 +4,10 @@ const app = express();
 const morgan= require('morgan');
 const mongoose= require('mongoose');
 const cors = require('cors');
-require('dotenv/config');
+
 const authJwt = require('./helpers/jwt');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+
 
 
 app.use(cors());
@@ -27,22 +27,20 @@ const api = process.env.API_URL;
 
 app.use(`${api}/users`, usersRoutes);
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+
 
 var Schema =mongoose.Schema;
 
-var cors = require('cors');
 
 //----------------------communiquer avec angular---------------------------------
-const cors = require('cors');
+
 
 //--------------------------------Configuration Bases de données -----------------------------------
 require('dotenv').config();
-var mongoose=require ('mongoose');
+
 const  uri= process.env.MONGODB_CONNECTION_STRING;
 mongoose.connect(uri,(err,done)=>{
   if (err)
@@ -54,12 +52,12 @@ mongoose.connect(uri,(err,done)=>{
     console.log("MongooDB database connection established successfully")
   }})
 //------------------------------------------------------------------------------------------------------
-var mongoose = require('mongoose');
-var cors = require('cors')
+
+
 const multer = require("multer")
 const notes = require("./model/notes");
 var excelToJson = require('convert-excel-to-json');
-var bodyParser  = require('body-parser');  
+  
 const nodemailer = require('nodemailer');
 /* const initRoutes = require("./routes"); */
 mongoose.connect("mongodb+srv://gestionEcole:gestionEcole@cluster0.qvcwozh.mongodb.net/GestionEcole?retryWrites=true&w=majority",(err,done)=>
