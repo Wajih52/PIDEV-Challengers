@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PIDEV CHalengers</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="/stylesheets/style1.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1 class="brand"><span>Formulaire </span> d'inscription pour l'evenement {{ data.nom }}</h1>
+    <div class="wrapper animated bounceInLeft">
+        <div class="company-info">
+            <h3>Ecole</h3>
+            <ul>
+                <li><i class="fa fa-road"></i> Tunis</li>
+                <li><i class="fa fa-phone"></i> (+216) 52 240 470</li>
+                <li><i class="fa fa-envelope"></i> pidevgestionecole@outlook.com</li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h3>Email Us</h3>
+            <form action="/evenement/envoyer" method="post">
+                <input type="hidden" name="secretid" value="{{ data._id }}">
+                <input type="hidden" name="eventnom" value="{{ data.nom }}">
+                <p>
+                    <label>Nom</label>
+                    <input type="text" name="nom">
+                </p>
+                <p>
+                    <label>profession</label>
+                    <input type="text" name="profession">
+                </p>
+                <p>
+                    <label>Ecole</label>
+                    <input type="text" name="ecole">
+                </p>
+                <p>
+                    <label>Niveau</label>
+                    <input type="text" name="niveau">
+                </p>
+                <p>
+                    <label>Email Address</label>
+                    <input type="email" name="email">
+                </p>
+                <p>
+                    <label>Télephone</label>
+                    <input type="text" name="telephone">
+                </p>
+                <p class="full">
+                    <label>Commentaire</label>
+                    <textarea name="commentaire" rows="5"></textarea>
+                </p>
+                <p class="full">
+                    <input type="submit" value="Envoyer">
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
