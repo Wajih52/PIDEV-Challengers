@@ -1,8 +1,8 @@
-const { expressjwt } = require("express-jwt")
+const { expressjwt } = require("express-jwt");
 
 
 function authJwt() {
-    const secret = process.env.secret;
+    const secret = 'Veigar-hahaha';
     const api = process.env.API_URL;
    
     return expressjwt({
@@ -10,13 +10,14 @@ function authJwt() {
         algorithms: ['HS256'],
        }).unless({
         path: [
-            `${api}/users/login`,
-            `${api}/users/`,
+            /* `${api}/users/login`,
+            `${api}/users/`, */
        /*      {url: /\/api\/v1\/users(.*)/ , methods: ['DELETE', 'OPTIONS'] },
             {url: /\/api\/v1\/users(.*)/ , methods: ['POST', 'OPTIONS'] },
             {url: /\/api\/v1\/users(.*)/ , methods: ['PUT', 'OPTIONS'] }, */
-            `${api}/users/resetpassword`,
-            `${api}/users/resetPasswordnew`,
+           /*  `${api}/users/resetpassword`,
+            `${api}/users/resetPasswordnew`, */
+              { url: /(.*)/ },
         ]
     })
 }
