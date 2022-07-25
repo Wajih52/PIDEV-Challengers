@@ -1,0 +1,31 @@
+<html>
+
+<body>
+<a href="/evenement/">Liste evenements </a>
+<form action="/evenement/modifier" method="post">
+
+    Nom  : <input type="text" name="nom" value="{{ data1.nom }}" />
+    date de debut: <input type="text" name="datedebut" value="{{ data1.datedebut }}" />
+    Heure de début: <input type="text" name="heuredebut" value="{{ data1.heuredebut }}" />
+    date de fin: <input type="text" name="datefin" value="{{ data1.datefin }}" />
+    heure de fin: <input type="text" name="heurefin" value="{{ data1.heurefin }}" /><br><br>
+    nombre de place: <input type="number" name="capacite" value="{{ data2.capacite }}" /><br><br>
+    description: <input type="text" name="description" value="{{ data2.description }}" /><br><br>
+    lieu de l'évenement: <input type="text" name="lieu" value="{{ data2.lieu }}" /><br><br>
+    Type lieu : <input type="text" name="typelieu" value="{{ data2.typelieu }}" /><br><br>
+    Type de l'evenement : <input type="text" name="typeevenement" value="{{ data2.typeevenement }}" /><br><br>
+    paiement : <input type="text" name="paiement" value="{{ data2.paiement }}" /><br><br>
+    nombre de like  : <input type="number" name="like" value="{{ data2.like }}" /><br><br>
+    <input type="hidden" name="secretid" value="{{ data1._id }}" />
+    <input type="submit" value="Modifier" />
+
+
+
+</form>
+
+
+
+</body>
+
+
+</html>
