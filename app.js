@@ -1,3 +1,31 @@
+const express = require('express');
+const { use } = require('express/lib/application');
+const app = express();
+const morgan= require('morgan');
+const mongoose= require('mongoose');
+const cors = require('cors');
+require('dotenv/config');
+const authJwt = require('./helpers/jwt');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
+
+app.use(cors());
+app.options('*', cors())
+
+//middleware
+app.use(bodyParser.json());
+app.use(morgan('tiny'));
+app.use(authJwt());
+
+//Routes
+const usersRoutes = require('./routes/users');
+const { text } = require('body-parser');
+
+
+const api = process.env.API_URL;
+
+app.use(`${api}/users`, usersRoutes);
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -55,7 +83,6 @@ var usersRouter = require('./routes/users');
 var absenceRouter = require('./routes/absences');
 var pieceRouter = require('./routes/pieces');
 
-var app = express();
 app.use(cors());
 
 
@@ -68,7 +95,7 @@ var usersRouter = require('./routes/users');
 var evenementRouter = require('./routes/evenement');
 //-------------------------------------------------------------------------------------
 
-var app = express();
+
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -159,9 +186,28 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
 
+
+mongoose.connect(process.env.CONNECTION_STRING,
+  {
+      useNewUrlParser : true,
+      useUnifiedTopology: true,
+      dbName: 'GestionEcole'
+
+
+  })
+.then(()=>{
+  console.log('connected ...')
+})
+.catch((err)=>{
+console.log(err);
+}) ;
+
+
+app.listen(3001, ()=>{
+  console.log(api);
+  console.log("app running in  http://localhost:3001");
+ 
+
+} )})
 module.exports = app;

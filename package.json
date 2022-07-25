@@ -1,10 +1,14 @@
 {
-  "name": "gestionecole",
-  "version": "0.0.0",
-  "private": true,
+  "name": "eshop",
+  "version": "1.0.0",
+  "description": "backend of the eshop",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
     "connect-multiparty": "^2.2.0",
