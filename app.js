@@ -3,6 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+var Schema =mongoose.Schema;
+
+var cors = require('cors');
+
 //----------------------communiquer avec angular---------------------------------
 const cors = require('cors');
 
@@ -40,6 +46,17 @@ mongoose.connect("mongodb+srv://gestionEcole:gestionEcole@cluster0.qvcwozh.mongo
 
 
 );
+ 
+var Absences =new Schema({
+    
+})
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var absenceRouter = require('./routes/absences');
+var pieceRouter = require('./routes/pieces');
+
+var app = express();
+app.use(cors());
 
 
 
@@ -80,6 +97,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/absences', absenceRouter);
+
+app.use('/pieces', pieceRouter);
 app.use('/evenement',evenementRouter)
 
 
