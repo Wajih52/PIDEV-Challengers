@@ -148,6 +148,7 @@ router.delete('/:id', (req, res)=>{
 
 router.post('/login', async(req, res)=>{
     const user = await User.findOne({email: req.body.email})
+   
     const secret = process.env.secret;
     if(!user){
         return res.status(400).send('User not found !')
